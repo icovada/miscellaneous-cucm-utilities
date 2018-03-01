@@ -3,7 +3,9 @@
 Edit DNs in CSV adding call forward no answer.
 
 Accepts CSV input as file "cfna.csv" in the same folder, with header
-dn,partition,callForwardNoAnswer,callForwardNoAnswerCSS,callForwardNoAnswerInt,callForwardNoAnswerIntCSS
+dn,partition,callForwardNoAnswer,callForwardNoAnswerCSS,callForwardNoAnswerInt, \
+callForwardNoAnswerIntCSS,callForwardNotRegistered,callForwardNotRegisteredCSS, \
+callForwardNotRegisteredInt,callForwardNotRegisteredIntCSS
 
 
 This program is free software: you can redistribute it and/or modify
@@ -67,7 +69,11 @@ def main():
                                    callForwardNoAnswer={"callingSearchSpaceName": line["callForwardNoAnswerCSS"],
                                                         "destination": line["callForwardNoAnswer"]},
                                    callForwardNoAnswerInt={"callingSearchSpaceName": line["callForwardNoAnswerIntCSS"],
-                                                           "destination": line["callForwardNoAnswerInt"]}
+                                                           "destination": line["callForwardNoAnswerInt"]},
+                                   callForwardNotRegistered={"callingSearchSpaceName": line["callForwardNotRegisteredCSS"],
+                                                        "destination": line["callForwardNotRegistered"]},
+                                   callForwardNotRegisteredInt={"callingSearchSpaceName": line["callForwardNotRegisteredIntCSS"],
+                                                           "destination": line["callForwardNotRegisteredInt"]}
                                   )
             except:
                 errors.append(line["dn"])
